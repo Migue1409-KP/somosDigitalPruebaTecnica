@@ -3,8 +3,6 @@
 - **Nombre:** Miguel Angel Mosquera Grisales
 - **Email:** mopri38@gmail.com
 
-## Instalación
-# Prueba Técnica Somos gente digital
 ## Desarrollado por:
 - **Nombre:** Miguel Angel Mosquera Grisales
 - **Email:** mopri38@gmail.com

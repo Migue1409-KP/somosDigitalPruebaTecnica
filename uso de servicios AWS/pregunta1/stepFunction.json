@@ -1,0 +1,28 @@
+{
+    "Comment": "Flujo para procesar un pedido",
+    "StartAt": "ValidarPedido",
+    "States": {
+      "ValidarPedido": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:region:account-id:function:ValidarPedido",
+        "Next": "ProcesarPago"
+      },
+      "ProcesarPago": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:region:account-id:function:ProcesarPago",
+        "Next": "NotificarCliente",
+        "Catch": [
+          {
+            "ErrorEquals": ["PaymentError"],
+            "ResultPath": "$.errorInfo",
+            "Next": "NotificarCliente"
+          }
+        ]
+      },
+      "NotificarCliente": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:region:account-id:function:NotificarCliente",
+        "End": true
+      }
+    }
+}  
